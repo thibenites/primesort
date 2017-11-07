@@ -3,7 +3,7 @@
 int ehprimo(int a);
 
 int main(){
-    int vetor[20];
+    int vetor[200100];
     int i, j, z, n;
     j = 0;
     z = 0;
@@ -63,18 +63,22 @@ int main(){
 }
 
 int ehprimo(int a){
-    int n, i;
-    n = 0;
+    int i;
     i = 0;
-    for(i=1; i<=a; i++){
-        if(a%i == 0){
-            n++;
-        }
-    }
-    if(n == 2){
-        return 1;
-    }
-    else{
+    if(a == 1){
         return 0;
     }
+    if(a == 2){
+        return 1;
+    }
+    if(a%2 == 0){
+        return 0;
+    }
+    for(i=3; i<=(a/2); i+=2){
+        if(a%i == 0){
+            return 0;
+        }
+    }
+    return 1;
+    
 }
